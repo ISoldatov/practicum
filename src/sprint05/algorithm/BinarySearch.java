@@ -1,6 +1,6 @@
-package sprint05.algorithm.binarysearch;
+package sprint05.algorithm;
 
-public class Practicum {
+public class BinarySearch {
     public static void main(String[] args) {
         int[] array = {1, 2, 5, 8, 12, 13, 20, 22, 24, 30, 32};
 
