@@ -16,31 +16,41 @@ public class PotatoLaboratory {
                 new Potato(6, 35, 33, 33),
                 new Potato(7, 38, 41, 24)
         );
-
         List<Potato> fourUnderExperiment = findPotatoesForExperiment(potatoes);
-
         System.out.println("Картофелины для эксперимента: " + fourUnderExperiment);
     }
 
+
     private static List<Potato> findPotatoesForExperiment(List<Potato> potatoes) {
-        ArrayList<Potato> potatoForExp = new ArrayList<>(potatoes);
+        ArrayList<Potato> exp = new ArrayList<>(potatoes);
+        exp.sort(Potato::compareTo);
+        System.out.println(exp);
 
-        potatoForExp.sort(Potato::compareTo);
-        List<Potato> alpha = new ArrayList<>();
-//        for (Potato p:potatoForExp) {
-//            alpha.add(p.calculateAlpha());
-//        }
+        for (Potato p: exp) {
+            System.out.println(p.id+":"+p.calculateAlpha());
+        }
+        System.out.println();
 
+        ArrayList<Potato> alpha = new ArrayList<>(4);
         for (int i = 0; i < 2; i++) {
-            Potato p = Collections.min(potatoForExp);
+            Potato p = Collections.min(exp);
             alpha.add(p);
-            potatoForExp.remove(p);
+            exp.remove(p);
         }
         for (int i = 0; i < 2; i++) {
-            Potato p = Collections.max(potatoForExp);
+            Potato p = Collections.max(exp);
             alpha.add(p);
-            potatoForExp.remove(p);
+            exp.remove(p);
         }
+        for (Potato p: alpha) {
+            System.out.println(p.id+":"+p.calculateAlpha());
+        }
+        System.out.println();
+        alpha.sort(Potato::compareTo);
+        for (Potato p: alpha) {
+            System.out.println(p.id+":"+p.calculateAlpha());
+        }
+
 				/* Вычислите две самые большие и две самые маленькие картофелины,
            а затем выведите их в порядке от самых маленьких до самых больших.*/
         return alpha;
