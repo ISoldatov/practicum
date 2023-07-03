@@ -3,7 +3,7 @@ package sprint06.string.findrepeats;
 public class Practicum {
     public static void main(String[] args) {
         FindRepeats check = new FindRepeats();
-        int count = check.numberOfRepeats("раз, раз, раз, вввразраб", "раз");
+        int count = check.numberOfRepeats("   фффразффф раз вввраз", "раз");
         System.out.println(count);
 
         Capitalizator check2 = new Capitalizator();
