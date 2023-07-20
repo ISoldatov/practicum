@@ -7,7 +7,8 @@ public class StackTraceExceptions {
         System.out.print("Введите целое число => ");
         Scanner scanner = new Scanner(System.in);
         final String inputValue = scanner.next();
-       /* try {
+        /*
+        try {
             final int parsedValue = IntegerParser.parseInt(inputValue);
             System.out.println(parsedValue);
         } catch (NullStringException | EmptyStringException exception) {
@@ -18,7 +19,7 @@ public class StackTraceExceptions {
             printException("Введённое число слишком большое.", exception);
         } catch (StringIsTooSmallNumberException exception) {
             printException("Введённое число слишком маленькое.", exception);
-        }*/
+        } */
     }
 
     private static void printException(final String message, Exception exception) {
