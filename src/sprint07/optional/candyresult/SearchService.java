@@ -1,5 +1,6 @@
 package sprint07.optional.candyresult;
 
+import java.util.Comparator;
 import java.util.Optional;
 
 public class SearchService {
@@ -16,6 +17,12 @@ public class SearchService {
     // Если товар нигде не найден, то возвращается пустой Optional
     public Optional<Candy> search(String candyName) {
         // Реализуйте данный метод, с использованием методов Optional
+        Optional<Candy> warehCandy = warehouse.search(candyName);
+        if (warehCandy.isPresent()) {
+            return warehCandy;
+        } else {
+            return supplierSearch(candyName);
+        }
     }
 
     // Ищет товар с указанным именем на складах поставщиков
@@ -24,5 +31,10 @@ public class SearchService {
     private Optional<Candy> supplierSearch(String candyName) {
         // Реализуйте данный метод при помощи Stream API и Optional,
         // используйте метод min из Stream API для нахождения товара с наименьшей ценой
+        return srm.listSuppliers().stream()
+                .map(s -> Optional.ofNullable(srm.getProduct(s, candyName)))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .min(Comparator.comparingDouble(c -> c.price));
     }
 }

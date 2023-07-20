@@ -7,6 +7,9 @@ public class Practicum {
 
         SearchService searchService = new SearchService();
 
-        searchService.search("Африка")
+        searchService.search("Африка").ifPresentOrElse(
+                c -> System.out.println("Товар " + c.name + " доступен в количестве " + c.amount + " кг по цене " + c.price + " руб за кг"),
+                () -> System.out.println("Данный товар не найден")
+        );
     }
 }
