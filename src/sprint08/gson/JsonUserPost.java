@@ -1,3 +1,5 @@
+package sprint08.gson;
+
 import com.google.gson.Gson;
 
 import java.time.LocalDate;
