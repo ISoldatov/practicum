@@ -1,5 +1,6 @@
-package sprint08.gson;
+package sprint08.http_server;
 
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -8,7 +9,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
-public class MyHttpServerURI {
+public class MyHttpServerHeaders {
     private static final int PORT = 8080;
 
     public static void main(String[] args) throws IOException {
@@ -28,11 +29,10 @@ public class MyHttpServerURI {
             String method = httpExchange.getRequestMethod();
             System.out.println("Началась обработка " + method + " /hello запроса от клиента.");
 
-            String path = httpExchange.getRequestURI().getPath();
-            String name = path.split("/")[2];
-            System.out.println("Имя: " + name);
+            Headers requestHeaders = httpExchange.getRequestHeaders();
+            System.out.println("Заголовки запроса: " + requestHeaders.entrySet());
 
-            String response = "Привет, " + name + "!";
+            String response = "Hello!";
             httpExchange.sendResponseHeaders(200, 0);
 
             try (OutputStream os = httpExchange.getResponseBody()) {

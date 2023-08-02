@@ -1,4 +1,4 @@
-package sprint08.seconf_http_server;
+package sprint08.http_server.seconf_http_server;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;

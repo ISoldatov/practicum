@@ -1,4 +1,4 @@
-package sprint08.gson.http_server_task_8_2_5;
+package sprint08.http_server.http_server_task_8_2_5;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
