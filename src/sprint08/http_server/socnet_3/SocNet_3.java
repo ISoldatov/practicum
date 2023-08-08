@@ -155,6 +155,7 @@ public class SocNet_3 {
                 }
             }
 
+
             writeResponse(exchange, "Пост с идентификатором " + postId + " не найден", 404);
         }
 
