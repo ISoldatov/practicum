@@ -17,6 +17,7 @@ public class HttpClientJson {
         URI url = URI.create("https://ipwhois.app/json/46.226.227.20?lang=ru");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(url)
+                .version(HttpClient.Version.HTTP_1_1)
                 .GET()
                 .build();
 

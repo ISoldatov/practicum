@@ -99,6 +99,7 @@ public class SocNet_3 {
                 writeResponse(exchange, "Получен некорректный JSON", 400);
                 return;
             }
+
             if (newComment.getUser() == null || newComment.getText() == null) {
                 writeResponse(exchange, "Поля комментария не могут быть пустыми", 400);
                 return;
